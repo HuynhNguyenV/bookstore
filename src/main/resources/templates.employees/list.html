@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <h1>List Employee</h1>
+    <a href="/employee/newEmployee">New Book</a>
+
+    <table>
+        <tr>
+            <td>Employee Id</td>
+            <td>Name</td>
+            <td>Date Of Birth</td>
+            <td>Gender</td>
+            <td>Address</td>
+            <td>Email</td>
+            <td>Level</td>
+            <td>[]</td>
+        </tr>
+
+        <tr th:each="item: ${employees}">
+            <td th:text="${item.employeeId}">ID</td>
+            <td th:text="${item.name}">Name</td>
+            <td th:text="${item.dateOfBirth}">Date Of Birth</td>
+            <td th:text="${item.gender}">Gender</td>
+            <td th:text="${item.address}">Address</td>
+            <td th:text="${item.email}">Email</td>
+            <td th:text="${item.level}">Level</td>
+
+            <td>
+                <a href="delete" th:href="@{'/employee/show/'+${item.employeeId}}" >View</a>
+                <a href="delete" th:href="@{'/employee/delete/'+${item.employeeId}}" >Delete</a>
+                <a href="delete" th:href="@{'/employee/edit/'+${item.employeeId}}" >Edit</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

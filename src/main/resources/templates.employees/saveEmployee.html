@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Book</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<h1>Add New Employee</h1>
+<hr/>
+<form th:action="@{/employee/newEmployee}" th:object="${employee}" method="post">
+
+
+    <div>
+        name: <input type="text" th:field="*{name}"/>
+    </div>
+    <div>
+        Date Of Birth: <input type="text" th:field="*{dateOfBirth}"/>
+    </div>
+    <div>
+        Gender: <input type="text" th:field="*{gender}"/>
+    </div>
+    <div>
+        Address: <input type="text" th:field="*{address}"/>
+    </div>
+    <div>
+        Email: <input type="text" th:field="*{email}"/>
+    </div>
+    <div>
+        Level: <input type="text" th:field="*{level}"/>
+    </div>
+    <hr/>
+    <div>
+        <input type="submit" value="Add Employee"/>
+    </div>
+</form>
+</body>
+</html>

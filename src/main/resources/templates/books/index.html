@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <h1>List Book</h1>
+    <a href="/book/new">New Book</a>
+
+    <table>
+        <tr>
+            <td>Book Id</td>
+            <td>Title</td>
+            <td>Quantity</td>
+            <td>Price</td>
+            <td>[]</td>
+        </tr>
+
+        <tr th:each="item: ${books}">
+            <td th:text="${item.id}">ID</td>
+            <td th:text="${item.title}">title</td>
+            <td th:text="${item.quantity}">quantity</td>
+            <td th:text="${item.price}">price</td>
+            <td>
+                <a href="delete" th:href="@{'/book/show/'+${item.id}}" >View</a>
+                <a href="delete" th:href="@{'/book/delete/'+${item.id}}" >Delete</a>
+                <a href="delete" th:href="@{'/book/edit/'+${item.id}}" >Edit</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
